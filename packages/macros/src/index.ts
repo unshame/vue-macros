@@ -42,6 +42,9 @@ import VueExportExpose, {
 import VueExportProps, {
   type Options as OptionsExportProps,
 } from '@vue-macros/export-props'
+import VueExportPropsRefs, {
+  type Options as OptionsExportPropsRefs,
+} from '@vue-macros/export-props-refs'
 import VueHoistStatic, {
   type Options as OptionsHoistStatic,
 } from '@vue-macros/hoist-static'
@@ -76,6 +79,7 @@ export interface FeatureOptionsMap {
   defineSlots: OptionsDefineSlots
   exportExpose: OptionsExportExpose
   exportProps: OptionsExportProps
+  exportPropsRefs: OptionsExportPropsRefs
   hoistStatic: OptionsHoistStatic
   namedTemplate: OptionsNamedTemplate
   reactivityTransform: OptionsReactivityTransform
@@ -129,6 +133,7 @@ export function resolveOptions({
   defineSlots,
   exportExpose,
   exportProps,
+  exportPropsRefs,
   hoistStatic,
   namedTemplate,
   reactivityTransform,
@@ -195,6 +200,11 @@ export function resolveOptions({
     ),
     exportProps: resolveSubOptions<'exportProps'>(
       exportProps,
+      { version },
+      false
+    ),
+    exportPropsRefs: resolveSubOptions<'exportPropsRefs'>(
+      exportPropsRefs,
       { version },
       false
     ),
@@ -269,6 +279,7 @@ export default createCombinePlugin<Options | undefined>(
       resolvePlugin(VueDefineProps, framework, options.defineProps),
       resolvePlugin(VueDefinePropsRefs, framework, options.definePropsRefs),
       resolvePlugin(VueExportProps, framework, options.exportProps),
+      resolvePlugin(VueExportPropsRefs, framework, options.exportPropsRefs),
       resolvePlugin(VueShortEmits, framework, options.shortEmits),
       resolvePlugin(VueDefineModels, framework, options.defineModels),
       resolvePlugin(VueDefineSlots, framework, options.defineSlots),

@@ -20,10 +20,13 @@ export default defineConfig({
       defineModels: true,
       namedTemplate: false,
       exportProps: {
-        include: [/export-props.*\.vue$/],
+        include: [/export-props[\\/].*\.vue$/],
+      },
+      exportPropsRefs: {
+        include: [/export-props-refs[\\/].*\.vue$/],
       },
       exportExpose: {
-        include: [/export-expose.*\.vue$/],
+        include: [/export-expose[\\/].*\.vue$/],
       },
 
       plugins: {

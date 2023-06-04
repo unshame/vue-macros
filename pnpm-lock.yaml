@@ -368,6 +368,19 @@ importers:
         specifier: ^3.3.4
         version: 3.3.4
 
+  packages/export-props-refs:
+    dependencies:
+      '@vue-macros/common':
+        specifier: workspace:~
+        version: link:../common
+      unplugin:
+        specifier: ^1.3.1
+        version: 1.3.1
+    devDependencies:
+      vue:
+        specifier: ^3.3.4
+        version: 3.3.4
+
   packages/hoist-static:
     dependencies:
       '@vue-macros/common':
@@ -415,6 +428,9 @@ importers:
       '@vue-macros/export-props':
         specifier: workspace:*
         version: link:../export-props
+      '@vue-macros/export-props-refs':
+        specifier: workspace:*
+        version: link:../export-props-refs
       '@vue-macros/hoist-static':
         specifier: workspace:*
         version: link:../hoist-static

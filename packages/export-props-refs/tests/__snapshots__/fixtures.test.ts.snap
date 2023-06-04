@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`fixtures > ./fixtures/basic.vue 1`] = `
+"<script setup lang=\\"ts\\">
+withDefaults(defineProps<{
+  foo?: string,
+  bar?: any,
+  qux?: any,
+}>(), {
+  foo: 'foo',
+  bar: 10,
+  qux: fn(),
+});
+const { foo, bar, qux, } = __MACROS_toRefs(__props);
+import { toRefs as __MACROS_toRefs } from \\"vue\\";
+import { ref } from 'vue'
+
+
+
+
+
+function fn() {}
+</script>
+"
+`;
